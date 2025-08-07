@@ -14,8 +14,10 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // permitir todas las rutas
-                        .allowedOrigins("https://blog-frontend-sooty-rho.vercel.app") // tu frontend
-                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins(
+                                "http://localhost:4200",
+                                "https://blog-frontend-sooty-rho.vercel.app" // <-- poné la URL real de tu frontend en Vercel
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true); // si usás cookies o auth
